@@ -65,4 +65,24 @@ async def football(ctx):
    # Daha sonra bu dosyayı bir parametre olarak gönderebiliriz!
     await ctx.send(file=picture)
 
-bot.run("MTE5ODMzMjIwMzczODg1NzU1Mg.G-62SB.U9caj7PKqOPayia7wMynuPfE3d0qLV1CikFICA")
+@bot.command()
+async def games(ctx):
+    resimler_listesi = os.listdir("games")
+    rastgele_resim = random.choice(resimler_listesi)
+    with open(f'games/{rastgele_resim}', 'rb') as f:
+        # Dönüştürülen Discord kütüphane dosyasını bu değişkende saklayalım!
+        picture = discord.File(f)
+   # Daha sonra bu dosyayı bir parametre olarak gönderebiliriz!
+    await ctx.send(file=picture)
+
+@bot.command()
+async def mem(ctx):
+    resimler_listesi = os.listdir("mem")
+    rastgele_resim = random.choice(resimler_listesi)
+    with open(f'mem/{rastgele_resim}', 'rb') as f:
+        # Dönüştürülen Discord kütüphane dosyasını bu değişkende saklayalım!
+        picture = discord.File(f)
+   # Daha sonra bu dosyayı bir parametre olarak gönderebiliriz!
+    await ctx.send(file=picture)
+
+bot.run("MTE5ODMzMjIwMzczODg1NzU1Mg.Gy7wt3.FrHFWSNl3HLjYgzHZ3RRPN6uw377Ji0f9MHTKw")
